@@ -29,9 +29,13 @@
                                     <action selector="authenticationWithTouchID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNo-q9-s8u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz3-SU-Kij">
-                                <rect key="frame" x="184" y="345" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz3-SU-Kij">
+                                <rect key="frame" x="177" y="418" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="978-Or-SyM"/>
+                                    <constraint firstAttribute="width" constant="60" id="h8C-BI-7Eh"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="faceId"/>
                                 <connections>
                                     <action selector="authenticationWithFaceId:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HEK-a7-0ZW"/>
                                 </connections>
@@ -40,10 +44,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nrG-4G-LNQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NuQ-Di-61f"/>
-                            <constraint firstItem="nrG-4G-LNQ" firstAttribute="top" secondItem="Gz3-SU-Kij" secondAttribute="bottom" constant="43" id="Tjr-sC-dfZ"/>
-                            <constraint firstItem="Gz3-SU-Kij" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="184" id="YKw-or-yY5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gz3-SU-Kij" secondAttribute="trailing" constant="184" id="iYR-pG-MJZ"/>
+                            <constraint firstItem="Gz3-SU-Kij" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="olM-V2-RUu"/>
                             <constraint firstItem="nrG-4G-LNQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="whg-fJ-pMX"/>
+                            <constraint firstItem="Gz3-SU-Kij" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xU6-rh-baf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -186,6 +189,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="faceId" width="170" height="170"/>
         <image name="touchId" width="366" height="366"/>
     </resources>
 </document>

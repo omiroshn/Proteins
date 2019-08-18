@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497AD0882309BEF00022B23B /* loadingIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 497AD0872309BEF00022B23B /* loadingIcon.gif */; };
+		497AD08A2309C0A40022B23B /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AD0892309C0A40022B23B /* Atom.swift */; };
 		499CBB2C230827170022C8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2B230827170022C8AC /* AppDelegate.swift */; };
 		499CBB2E230827170022C8AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2D230827170022C8AC /* LoginViewController.swift */; };
 		499CBB31230827170022C8AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499CBB2F230827170022C8AC /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyProteins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		497AD0872309BEF00022B23B /* loadingIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loadingIcon.gif; path = ../../loadingIcon.gif; sourceTree = "<group>"; };
+		497AD0892309C0A40022B23B /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		499CBB28230827170022C8AC /* swiftyProteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyProteins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499CBB2B230827170022C8AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499CBB2D230827170022C8AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -72,9 +76,11 @@
 				499CBB3F230852B80022C8AC /* Ligands.swift */,
 				499CBB2F230827170022C8AC /* Main.storyboard */,
 				499CBB3D230835200022C8AC /* ProteinListViewController.swift */,
+				497AD0892309C0A40022B23B /* Atom.swift */,
 				499CBB41230870BD0022C8AC /* ProteinViewController.swift */,
 				499CBB322308271D0022C8AC /* Assets.xcassets */,
 				499CBB342308271D0022C8AC /* LaunchScreen.storyboard */,
+				497AD0872309BEF00022B23B /* loadingIcon.gif */,
 				499CBB372308271D0022C8AC /* Info.plist */,
 			);
 			path = swiftyProteins;
@@ -159,6 +165,7 @@
 			files = (
 				499CBB362308271D0022C8AC /* LaunchScreen.storyboard in Resources */,
 				499CBB332308271D0022C8AC /* Assets.xcassets in Resources */,
+				497AD0882309BEF00022B23B /* loadingIcon.gif in Resources */,
 				499CBB31230827170022C8AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +223,7 @@
 				499CBB2C230827170022C8AC /* AppDelegate.swift in Sources */,
 				499CBB42230870BD0022C8AC /* ProteinViewController.swift in Sources */,
 				499CBB40230852B80022C8AC /* Ligands.swift in Sources */,
+				497AD08A2309C0A40022B23B /* Atom.swift in Sources */,
 				499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

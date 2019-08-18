@@ -10,6 +10,7 @@ class ProteinCell: UITableViewCell {
             contentView.backgroundColor = UIColor(red: 0.3216, green: 0.7686, blue: 0.6784, alpha: 1)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                 self.contentView.backgroundColor = .white
+                
             }
         }
     }
@@ -19,6 +20,7 @@ class ProteinCell: UITableViewCell {
 class ProteinListViewController: UIViewController {
     @IBOutlet weak var proteinTableView: UITableView!
     @IBOutlet weak var proteinSearchBar: UISearchBar!
+    let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     
     var ligandsList = [String]()
     var searchLigands = [String]()
@@ -29,6 +31,8 @@ class ProteinListViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         proteinSearchBar.backgroundColor = UIColor(red: 0.3216, green: 0.7686, blue: 0.6784, alpha: 1)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(customView: activityIndicator), animated: true)
+        activityIndicator.color = .black
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,15 +66,18 @@ extension ProteinListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        activityIndicator.startAnimating()
         if isSearching {
             ligandForSeque = self.searchLigands[indexPath.row]
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.performSegue(withIdentifier: "Ligand", sender: self)
             }
         }
         else {
             ligandForSeque = self.ligandsList[indexPath.row]
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.performSegue(withIdentifier: "Ligand", sender: self)
             }
         }

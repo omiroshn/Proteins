@@ -1,28 +1,5 @@
 import UIKit
 
-class Atom {
-    var id = Int()
-    var symb = String()
-    var color = UIColor()
-    var x = Double()
-    var y = Double()
-    var z = Double()
-    var connections = [Int()]
-    
-    init(id: Int, symb: String, color: UIColor, x: Double, y: Double, z: Double) {
-        self.id = id
-        self.symb = symb
-        self.color = color
-        self.x = x
-        self.y = y
-        self.z = z
-    }
-    
-    func setConnections(connections: [Int]) {
-        self.connections = connections
-    }
-}
-
 class ProteinViewController: UIViewController {
     var ligand = String()
     var ligandData: [String] = []
@@ -31,12 +8,9 @@ class ProteinViewController: UIViewController {
     var atomList: [Atom] = []
     var colors = [String: UIColor]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         proteinName.text = ligand
-        
-        
         
         generateColor()
         proteinDataRequest() {

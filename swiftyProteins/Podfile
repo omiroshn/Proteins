@@ -6,6 +6,6 @@ target 'swiftyProteins' do
   use_frameworks!
 
   # Pods for swiftyProteins
-	pod 'Alamofire'
+	pod 'SwiftGifOrigin'
 
 end
