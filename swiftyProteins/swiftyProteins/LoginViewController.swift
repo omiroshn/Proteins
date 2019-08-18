@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
 
     func checkFaceIdAvailable() {
         var error: NSError?
-        let canAuthenticate = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
+        let canAuthenticate = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         
         if canAuthenticate && context.biometryType == .faceID {
             faceIDLoginButton.isHidden = false

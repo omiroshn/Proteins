@@ -29,11 +29,7 @@ class ProteinListViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         proteinSearchBar.backgroundColor = UIColor(red: 0.3216, green: 0.7686, blue: 0.6784, alpha: 1)
-        
-        
     }
-    
-   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVc = segue.destination as? ProteinViewController {
