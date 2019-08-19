@@ -9,8 +9,15 @@ class Ligands: NSObject {
             if let err = error{
                 print(err)
             }
-            else {
-                completeonClosure(data as Data?)
+            if let res = response as? HTTPURLResponse {
+                print(res.statusCode)
+                if res.statusCode == 200 {
+                    completeonClosure(data as Data?)
+                } else {
+                    print("Bad status code")
+                }
+            } else {
+                print("Bad response")
             }
         }
         task.resume()

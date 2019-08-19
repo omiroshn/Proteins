@@ -113,3 +113,17 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension ProteinListViewController {
+    func startActivityIndicator() {
+        self.activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func stopActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}

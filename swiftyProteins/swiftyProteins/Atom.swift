@@ -4,12 +4,12 @@ class Atom: NSObject {
     var id = Int()
     var symb = String()
     var color = UIColor()
-    var x = Double()
-    var y = Double()
-    var z = Double()
+    var x = Float()
+    var y = Float()
+    var z = Float()
     var connections = [Int()]
     
-    init(id: Int, symb: String, color: UIColor, x: Double, y: Double, z: Double) {
+    init(id: Int, symb: String, color: UIColor, x: Float, y: Float, z: Float) {
         self.id = id
         self.symb = symb
         self.color = color

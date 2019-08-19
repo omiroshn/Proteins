@@ -8,33 +8,24 @@ class LoginViewController: UIViewController {
     var ligands = Ligands()
     
     @IBOutlet weak var faceIDLoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkTouchIdAvailable()
-        checkFaceIdAvailable()
-    }
-
-    func checkFaceIdAvailable() {
-        var error: NSError?
-        let canAuthenticate = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
-        
-        if canAuthenticate && context.biometryType == .faceID {
-            faceIDLoginButton.isHidden = false
-        } else {
-            print(error as Any)
-            faceIDLoginButton.isHidden = true
-        }
+        checkBiometricalEntry()
     }
     
-    func checkTouchIdAvailable() {
+    func checkBiometricalEntry() {
         var error: NSError?
         let canAuthenticate = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         
         if canAuthenticate && context.biometryType == .touchID {
             touchIDloginButton.isHidden = false
+        } else if canAuthenticate && context.biometryType == .faceID {
+            faceIDLoginButton.isHidden = false
         } else {
             print(error as Any)
-            touchIDloginButton.isHidden = true
+            authenticationError("Biometrics are not supported on this device, Sorry.")
+            touchIDloginButton.isHidden = false
         }
     }
     

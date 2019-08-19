@@ -1,20 +1,25 @@
 import UIKit
+import SceneKit
 
 class ProteinViewController: UIViewController {
     var ligand = String()
     var ligandData: [String] = []
+    
     @IBOutlet weak var proteinName: UILabel!
-
-    var atomList: [Atom] = []
+    
+    static var atomList: [Atom] = []
+    var proteinsNames: [String] = []
     var colors = [String: UIColor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         proteinName.text = ligand
         
-        generateColor()
+        view.backgroundColor = .black
+        
         proteinDataRequest() {
             data in
+            ProteinViewController.atomList = []
             if let ligandData = data as Data? {
                 if let ligandStringData = String(data: ligandData, encoding: .utf8) {
                     for line in ligandStringData.split(separator: "\n") {
@@ -23,22 +28,20 @@ class ProteinViewController: UIViewController {
                     self.parseLigandsData()
                 }
             }
+            let scnView = self.view as! SCNView
+            scnView.scene = ProteinScene()
+            scnView.backgroundColor = UIColor.black
+            scnView.autoenablesDefaultLighting = true
+            scnView.allowsCameraControl = true
         }
     }
     
-    func generateColor() {
-        let proteins = ["H", "C", "N", "O", "F", "Cl", "Br", "I", "He", "Ne", "Ar", "Xe", "Kr", "P", "S", "B", "Li", "Na", "K", "Rb", "Cs", "Fr", "Be", "Mg", "Ca", "Sr", "Ba", "Ra", "Ti", "Fe"]
-        
-        for protein in proteins {
-            colors[protein] = randomColor()
+    func addColor(atomName: String) -> UIColor {
+        if !proteinsNames.contains(atomName) {
+            colors[atomName] = UIColor.random
+            proteinsNames.append(atomName)
         }
-    }
-    
-    func randomColor() -> UIColor {
-        return UIColor(red:   CGFloat(arc4random()) / CGFloat(UInt32.max),
-                       green: CGFloat(arc4random()) / CGFloat(UInt32.max),
-                       blue:  CGFloat(arc4random()) / CGFloat(UInt32.max),
-                       alpha: 1.0)
+        return colors[atomName] ?? UIColor.white
     }
 
     func parseLigandsData() {
@@ -46,7 +49,15 @@ class ProteinViewController: UIViewController {
             let atomData = line.split(separator: " ")
             
             if atomData[0] == "ATOM" {
-                self.atomList.append(Atom(id: Int(atomData[1])!, symb: String(atomData[11]), color: colors[String(atomData[11])]!, x: Double(atomData[6])!, y: Double(atomData[7])!, z: Double(atomData[8])!))
+                ProteinViewController.atomList.append(
+                    Atom(id: Int(atomData[1])!,
+                         symb: String(atomData[11]),
+                         color: addColor(atomName: String(atomData[11])),
+                         x: Float(atomData[6])!,
+                         y: Float(atomData[7])!,
+                         z: Float(atomData[8])!
+                    )
+                )
             }
             else if atomData[0] == "CONECT" {
                 var connections: [Int] = []
@@ -54,7 +65,7 @@ class ProteinViewController: UIViewController {
                 for index in 1...atomData.count - 1 {
                     connections.append(Int(atomData[index])!)
                 }
-                self.atomList[Int(atomData[1])! - 1].setConnections(connections: connections)
+                ProteinViewController.atomList[Int(atomData[1])! - 1].setConnections(connections: connections)
             }
         }
     }
@@ -72,5 +83,14 @@ class ProteinViewController: UIViewController {
             }
         }
         task.resume()
+    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: 1.0)
     }
 }

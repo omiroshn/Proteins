@@ -146,7 +146,7 @@
         <scene sceneID="0fv-wX-zwW">
             <objects>
                 <viewController id="nBh-oz-j4n" customClass="ProteinViewController" customModule="swiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pIg-5o-1sw">
+                    <view key="view" contentMode="scaleToFill" id="pIg-5o-1sw" customClass="SCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		497AD0882309BEF00022B23B /* loadingIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 497AD0872309BEF00022B23B /* loadingIcon.gif */; };
 		497AD08A2309C0A40022B23B /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AD0892309C0A40022B23B /* Atom.swift */; };
 		499CBB2C230827170022C8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2B230827170022C8AC /* AppDelegate.swift */; };
 		499CBB2E230827170022C8AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2D230827170022C8AC /* LoginViewController.swift */; };
@@ -17,6 +16,9 @@
 		499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3D230835200022C8AC /* ProteinListViewController.swift */; };
 		499CBB40230852B80022C8AC /* Ligands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3F230852B80022C8AC /* Ligands.swift */; };
 		499CBB42230870BD0022C8AC /* ProteinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB41230870BD0022C8AC /* ProteinViewController.swift */; };
+		4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA9E249230AD88500DF5005 /* SceneKit.framework */; };
+		4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24B230AD97600DF5005 /* ProteinScene.swift */; };
+		4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */; };
 		59A685D4046E70B12848CCDA /* Pods_swiftyProteins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,9 @@
 		499CBB3D230835200022C8AC /* ProteinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinListViewController.swift; sourceTree = "<group>"; };
 		499CBB3F230852B80022C8AC /* Ligands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ligands.swift; sourceTree = "<group>"; };
 		499CBB41230870BD0022C8AC /* ProteinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinViewController.swift; sourceTree = "<group>"; };
+		4AA9E249230AD88500DF5005 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		4AA9E24B230AD97600DF5005 /* ProteinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
+		4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		AD18182122C6821D490A4DFD /* Pods-swiftyProteins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyProteins.debug.xcconfig"; path = "Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins.debug.xcconfig"; sourceTree = "<group>"; };
 		B9E3C9C60F69A3D404A58508 /* Pods-swiftyProteins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyProteins.release.xcconfig"; path = "Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */,
 				59A685D4046E70B12848CCDA /* Pods_swiftyProteins.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +84,8 @@
 				499CBB3D230835200022C8AC /* ProteinListViewController.swift */,
 				497AD0892309C0A40022B23B /* Atom.swift */,
 				499CBB41230870BD0022C8AC /* ProteinViewController.swift */,
+				4AA9E24B230AD97600DF5005 /* ProteinScene.swift */,
+				4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */,
 				499CBB322308271D0022C8AC /* Assets.xcassets */,
 				499CBB342308271D0022C8AC /* LaunchScreen.storyboard */,
 				497AD0872309BEF00022B23B /* loadingIcon.gif */,
@@ -98,6 +106,7 @@
 		C85EEFDA965C998BC4785B46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AA9E249230AD88500DF5005 /* SceneKit.framework */,
 				35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */,
 			);
 			name = Frameworks;
@@ -165,7 +174,6 @@
 			files = (
 				499CBB362308271D0022C8AC /* LaunchScreen.storyboard in Resources */,
 				499CBB332308271D0022C8AC /* Assets.xcassets in Resources */,
-				497AD0882309BEF00022B23B /* loadingIcon.gif in Resources */,
 				499CBB31230827170022C8AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,11 +228,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				499CBB2E230827170022C8AC /* LoginViewController.swift in Sources */,
+				4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */,
 				499CBB2C230827170022C8AC /* AppDelegate.swift in Sources */,
 				499CBB42230870BD0022C8AC /* ProteinViewController.swift in Sources */,
 				499CBB40230852B80022C8AC /* Ligands.swift in Sources */,
 				497AD08A2309C0A40022B23B /* Atom.swift in Sources */,
 				499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */,
+				4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
