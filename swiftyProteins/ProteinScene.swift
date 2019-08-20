@@ -1,11 +1,3 @@
-//
-//  ProteinScene.swift
-//  swiftyProteins
-//
-//  Created by Oleksii MIROSHNYK on 8/19/19.
-//  Copyright © 2019 aryabenk. All rights reserved.
-//
-
 import UIKit
 import SceneKit
 
@@ -46,11 +38,12 @@ class ProteinScene: SCNScene {
     
     func drawAtomsWithCubes() {
         for atom in atomList {
-            let boxGeom = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
+            let boxGeom = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0)
             boxGeom.firstMaterial?.diffuse.contents = atom.color
             //boxGeom.firstMaterial?.diffuse.contents = UIColor.white
             let boxNode = SCNNode(geometry: boxGeom)
             boxNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
+            boxNode.name = String(atom.id)
             self.rootNode.addChildNode(boxNode)
         }
     }

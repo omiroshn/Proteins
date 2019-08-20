@@ -2,7 +2,6 @@ import UIKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {
-
     @IBOutlet weak var touchIDloginButton: UIButton!
     let context = LAContext()
     var ligands = Ligands()
@@ -11,6 +10,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         touchIDloginButton.isHidden = true
         faceIDLoginButton.isHidden = true
         checkBiometricalEntry()

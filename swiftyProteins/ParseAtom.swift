@@ -97,8 +97,10 @@ class ParseAtom: NSObject {
                     self.atomsData.append(String(line))
                 }
                 self.parseAtomData()
-                self.atomsData.removeAll()
             }
+        }
+        if !self.atomsData.isEmpty {
+            self.atomsData.removeAll()
         }
     }
 }

@@ -5,9 +5,9 @@ class ProteinViewController: UIViewController {
     var atomList: [Atom] = []
     var scnView = SCNView()
     
+    @IBOutlet weak var informationView: UIView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var symbolLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
     
     @IBOutlet weak var xLabel: UILabel!
     @IBOutlet weak var yLabel: UILabel!
@@ -28,6 +28,8 @@ class ProteinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        informationView.layer.cornerRadius = 5
+        
         view.backgroundColor = .black
         switchControl.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         
@@ -46,14 +48,9 @@ class ProteinViewController: UIViewController {
     }
     
     @IBAction func sharePressed(_ sender: Any) {
-        let layer = UIApplication.shared.keyWindow!.layer
-        let scale = UIScreen.main.scale
-        // Creates UIImage of same size as view
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        let snapshot = self.scnView.snapshot()
         
-        let activityVC = UIActivityViewController(activityItems: [screenshot!], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [snapshot], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         
         self.present(activityVC, animated: true, completion: nil)
@@ -63,7 +60,6 @@ class ProteinViewController: UIViewController {
     func hide(on: Bool) {
         infoView.isHidden = on
         symbolLabel.isHidden = on
-        idLabel.isHidden = on
         xLabel.isHidden = on
         yLabel.isHidden = on
         zLabel.isHidden = on
@@ -79,11 +75,10 @@ class ProteinViewController: UIViewController {
                 let tappedNode = hits.first?.node
                 if let id = tappedNode?.name {
                     let atom = atomList[Int(id)! - 1]
-                    symbolLabel.text = atom.symb
-                    idLabel.text = "ID " + String(atom.id)
-                    xLabel.text = "X " + String(atom.x)
-                    yLabel.text = "Y " + String(atom.y)
-                    zLabel.text = "Z " + String(atom.z)
+                    symbolLabel.text = "Atom: \(atom.symb)"
+                    xLabel.text = "X position: " + String(atom.x)
+                    yLabel.text = "Y position: " + String(atom.y)
+                    zLabel.text = "Z position: " + String(atom.z)
                 }
             } else {
                 hide(on: true)
