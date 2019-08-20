@@ -16,7 +16,7 @@
 		499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3D230835200022C8AC /* ProteinListViewController.swift */; };
 		499CBB40230852B80022C8AC /* Ligands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3F230852B80022C8AC /* Ligands.swift */; };
 		499CBB42230870BD0022C8AC /* ProteinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB41230870BD0022C8AC /* ProteinViewController.swift */; };
-		49BFAFEE230C21F900BE0BB3 /* ParseAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFAFED230C21F900BE0BB3 /* ParseAtom.swift */; };
+		49BFAFF0230C44A600BE0BB3 /* ParseAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFAFEF230C44A600BE0BB3 /* ParseAtom.swift */; };
 		4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA9E249230AD88500DF5005 /* SceneKit.framework */; };
 		4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24B230AD97600DF5005 /* ProteinScene.swift */; };
 		4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */; };
@@ -25,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyProteins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		497AD0872309BEF00022B23B /* loadingIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loadingIcon.gif; path = ../../loadingIcon.gif; sourceTree = "<group>"; };
 		497AD0892309C0A40022B23B /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		499CBB28230827170022C8AC /* swiftyProteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyProteins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499CBB2B230827170022C8AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,7 @@
 		499CBB3D230835200022C8AC /* ProteinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinListViewController.swift; sourceTree = "<group>"; };
 		499CBB3F230852B80022C8AC /* Ligands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ligands.swift; sourceTree = "<group>"; };
 		499CBB41230870BD0022C8AC /* ProteinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinViewController.swift; sourceTree = "<group>"; };
-		49BFAFED230C21F900BE0BB3 /* ParseAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAtom.swift; sourceTree = "<group>"; };
+		49BFAFEF230C44A600BE0BB3 /* ParseAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAtom.swift; sourceTree = "<group>"; };
 		4AA9E249230AD88500DF5005 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		4AA9E24B230AD97600DF5005 /* ProteinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
 		4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
@@ -83,13 +84,14 @@
 				499CBB3F230852B80022C8AC /* Ligands.swift */,
 				499CBB2F230827170022C8AC /* Main.storyboard */,
 				499CBB3D230835200022C8AC /* ProteinListViewController.swift */,
+				49BFAFEF230C44A600BE0BB3 /* ParseAtom.swift */,
 				497AD0892309C0A40022B23B /* Atom.swift */,
 				499CBB41230870BD0022C8AC /* ProteinViewController.swift */,
-				49BFAFED230C21F900BE0BB3 /* ParseAtom.swift */,
 				4AA9E24B230AD97600DF5005 /* ProteinScene.swift */,
 				4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */,
 				499CBB322308271D0022C8AC /* Assets.xcassets */,
 				499CBB342308271D0022C8AC /* LaunchScreen.storyboard */,
+				497AD0872309BEF00022B23B /* loadingIcon.gif */,
 				499CBB372308271D0022C8AC /* Info.plist */,
 			);
 			path = swiftyProteins;
@@ -234,9 +236,9 @@
 				499CBB42230870BD0022C8AC /* ProteinViewController.swift in Sources */,
 				499CBB40230852B80022C8AC /* Ligands.swift in Sources */,
 				497AD08A2309C0A40022B23B /* Atom.swift in Sources */,
-				49BFAFEE230C21F900BE0BB3 /* ParseAtom.swift in Sources */,
 				499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */,
 				4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */,
+				49BFAFF0230C44A600BE0BB3 /* ParseAtom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

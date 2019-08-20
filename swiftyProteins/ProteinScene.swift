@@ -10,26 +10,25 @@ import UIKit
 import SceneKit
 
 class ProteinScene: SCNScene {
-    
     var atomList: [Atom] = []
     
     init(atomList: [Atom] = []) {
         super.init()
         
-        
-        //drawAtomsWithCubes()
         self.atomList = atomList
-        drawAtomsWithSpheres()
+        self.rootNode.addChildNode(cameraSettings())
+        if ProteinViewController.switchIsOn == true {
+            drawAtomsWithSpheres()
+        } else {
+            drawAtomsWithCubes()
+        }
         drawPillars()
-        self.rootNode.addChildNode(self.cameraSettings())
     }
     
     func cameraSettings() -> SCNNode {
         let cameraNode = SCNNode()
-        
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x:0, y: 0, z: 30)
-        
         return cameraNode
     }
     
@@ -75,7 +74,7 @@ class ProteinScene: SCNScene {
     func drawPillars() {
         for atom in atomList {
             let first = atom.connections.first!
-            let firstProtein = atomList[first - 1]
+            let firstProtein = atomList[first-1]
             let firstVec = SCNVector3(x: firstProtein.x, y: firstProtein.y, z: firstProtein.z)
             
             for atomID in atom.connections {

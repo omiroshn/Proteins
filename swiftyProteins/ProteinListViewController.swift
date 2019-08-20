@@ -42,8 +42,8 @@ class ProteinListViewController: UIViewController {
         }
     }
     
-    func atomDataRequest(completeonClosure: @escaping (Data?) -> ()) {
-        let url = URL(string: "https://files.rcsb.org/ligands/vi//\(self.parseAtom.ligandName)_ideal.pdb")
+    func proteinDataRequest(completeonClosure: @escaping (Data?) -> ()) {
+        let url = URL(string: "https://files.rcsb.org/ligands/view//\(self.parseAtom.ligandName)_ideal.pdb")
         let request = NSMutableURLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             (data, response, error) in
@@ -108,7 +108,7 @@ extension ProteinListViewController: UITableViewDelegate, UITableViewDataSource 
         else {
             self.parseAtom.ligandName = self.ligandsList[indexPath.row]
         }
-        self.atomDataRequest() {
+        self.proteinDataRequest() {
             data in
             self.parseAtom.atomSplit(data: data)
             DispatchQueue.main.async {

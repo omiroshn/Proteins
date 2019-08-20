@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="2023.1884057971015" y="8.7053571428571423"/>
         </scene>
-        <!--Protein View Controller-->
+        <!--Title-->
         <scene sceneID="0fv-wX-zwW">
             <objects>
                 <viewController id="nBh-oz-j4n" customClass="ProteinViewController" customModule="swiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,21 +186,24 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ujQ-5R-igt" secondAttribute="trailing" constant="161" id="09B-bp-W8x"/>
                                     <constraint firstItem="9Q8-uA-HDc" firstAttribute="top" secondItem="sFp-yT-4pX" secondAttribute="bottom" constant="22" id="0Wp-fU-fbQ"/>
                                     <constraint firstItem="ujQ-5R-igt" firstAttribute="top" secondItem="jfn-T9-hwF" secondAttribute="bottom" constant="8" id="1qz-bV-hp2"/>
                                     <constraint firstItem="sFp-yT-4pX" firstAttribute="leading" secondItem="cY8-qE-jzn" secondAttribute="leading" constant="61" id="7Ld-Ko-Guq"/>
                                     <constraint firstItem="ujQ-5R-igt" firstAttribute="leading" secondItem="cY8-qE-jzn" secondAttribute="leading" constant="8" id="AT9-jv-Pvh"/>
                                     <constraint firstAttribute="bottom" secondItem="ujQ-5R-igt" secondAttribute="bottom" constant="21" id="G5h-pq-Fv1"/>
                                     <constraint firstItem="fTW-NS-0fE" firstAttribute="top" secondItem="cY8-qE-jzn" secondAttribute="top" constant="8" id="KBs-EC-8SA"/>
-                                    <constraint firstAttribute="trailing" secondItem="sFp-yT-4pX" secondAttribute="trailing" constant="61" id="KIh-lD-t5o"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="sFp-yT-4pX" secondAttribute="trailing" constant="61" id="KIh-lD-t5o"/>
                                     <constraint firstItem="sFp-yT-4pX" firstAttribute="top" secondItem="fTW-NS-0fE" secondAttribute="bottom" constant="8" id="NNZ-hc-1cF"/>
                                     <constraint firstItem="9Q8-uA-HDc" firstAttribute="leading" secondItem="cY8-qE-jzn" secondAttribute="leading" constant="8" id="OZw-qj-hU5"/>
                                     <constraint firstAttribute="width" constant="180" id="bBd-x9-F9I"/>
                                     <constraint firstAttribute="height" constant="180" id="e1O-sH-o1R"/>
-                                    <constraint firstAttribute="trailing" secondItem="fTW-NS-0fE" secondAttribute="trailing" constant="61" id="fGF-9A-ocn"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fTW-NS-0fE" secondAttribute="trailing" constant="61" id="fGF-9A-ocn"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="jfn-T9-hwF" secondAttribute="trailing" constant="161" id="fdD-Ns-6xt"/>
                                     <constraint firstItem="jfn-T9-hwF" firstAttribute="leading" secondItem="cY8-qE-jzn" secondAttribute="leading" constant="8" id="hf8-x2-YSA"/>
                                     <constraint firstItem="fTW-NS-0fE" firstAttribute="leading" secondItem="cY8-qE-jzn" secondAttribute="leading" constant="61" id="i5d-TF-UO8"/>
                                     <constraint firstItem="jfn-T9-hwF" firstAttribute="top" secondItem="9Q8-uA-HDc" secondAttribute="bottom" constant="8" id="kHz-ra-BTR"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9Q8-uA-HDc" secondAttribute="trailing" constant="160" id="kWJ-K6-O1k"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -211,9 +214,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rdk-cK-XAa"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="48V-LQ-dZ4">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="axP-JC-6lc">
+                                <connections>
+                                    <action selector="sharePressed:" destination="nBh-oz-j4n" id="DZD-iN-RMq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="hK4-ec-G51">
+                                <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="C0Z-FF-r5w">
+                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </switch>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="idLabel" destination="sFp-yT-4pX" id="SLA-OA-Qtr"/>
                         <outlet property="infoView" destination="cY8-qE-jzn" id="iEu-3F-16H"/>
+                        <outlet property="switchControl" destination="C0Z-FF-r5w" id="VDW-RM-tQ9"/>
                         <outlet property="symbolLabel" destination="fTW-NS-0fE" id="j1n-Af-pEY"/>
                         <outlet property="xLabel" destination="9Q8-uA-HDc" id="a9O-FR-ugb"/>
                         <outlet property="yLabel" destination="jfn-T9-hwF" id="SEM-O9-aq7"/>
