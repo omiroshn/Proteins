@@ -5,17 +5,27 @@ class ProteinViewController: UIViewController {
     var ligand = String()
     var ligandData: [String] = []
     
-    @IBOutlet weak var proteinName: UILabel!
-    
     static var atomList: [Atom] = []
     var proteinsNames: [String] = []
     var colors = [String: UIColor]()
+    var scnView = SCNView()
+    
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    
+    @IBOutlet weak var xLabel: UILabel!
+    @IBOutlet weak var yLabel: UILabel!
+    @IBOutlet weak var zLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        proteinName.text = ligand
         
         view.backgroundColor = .black
+        
+        hide(on: true)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         
         proteinDataRequest() {
             data in
@@ -28,11 +38,45 @@ class ProteinViewController: UIViewController {
                     self.parseLigandsData()
                 }
             }
-            let scnView = self.view as! SCNView
-            scnView.scene = ProteinScene()
-            scnView.backgroundColor = UIColor.black
-            scnView.autoenablesDefaultLighting = true
-            scnView.allowsCameraControl = true
+            self.scnView = self.view as! SCNView
+            self.scnView.scene = ProteinScene()
+            self.scnView.backgroundColor = UIColor.black
+            self.scnView.autoenablesDefaultLighting = true
+            self.scnView.allowsCameraControl = true
+            DispatchQueue.main.async {
+                self.scnView.addGestureRecognizer(tap)
+            }
+        }
+    }
+    
+    func hide(on: Bool) {
+        infoView.isHidden = on
+        symbolLabel.isHidden = on
+        idLabel.isHidden = on
+        xLabel.isHidden = on
+        yLabel.isHidden = on
+        zLabel.isHidden = on
+    }
+    
+    @objc func handleTap(rec: UITapGestureRecognizer) {
+        
+        if rec.state == .ended {
+            let location: CGPoint = rec.location(in: scnView)
+            let hits = self.scnView.hitTest(location, options: nil)
+            if !hits.isEmpty{
+                hide(on: false)
+                let tappedNode = hits.first?.node
+                if let id = tappedNode?.name {
+                    let atom = ProteinViewController.atomList[Int(id)! - 1]
+                    symbolLabel.text = atom.symb
+                    idLabel.text = "ID " + String(atom.id)
+                    xLabel.text = "X " + String(atom.x)
+                    yLabel.text = "Y " + String(atom.y)
+                    zLabel.text = "Z " + String(atom.z)
+                }
+            } else {
+                hide(on: true)
+            }
         }
     }
     

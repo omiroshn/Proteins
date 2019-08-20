@@ -23,11 +23,11 @@ class ProteinScene: SCNScene {
     func drawAtomsWithSpheres() {
         for atom in ProteinViewController.atomList {
             let sphereGeom = SCNSphere(radius: 0.5)
-//            sphereGeom.firstMaterial?.diffuse.contents = atom.color
-//            sphereGeom.firstMaterial?.diffuse.contents = UIColor.white
-            sphereGeom.firstMaterial?.diffuse.contents = UIImage(named: "sphereTextureEarth.png")
+            sphereGeom.firstMaterial?.diffuse.contents = atom.color
+            //sphereGeom.firstMaterial?.diffuse.contents = UIColor.white
             let sphereNode = SCNNode(geometry: sphereGeom)
             sphereNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
+            sphereNode.name = String(atom.id)
             self.rootNode.addChildNode(sphereNode)
         }
     }
@@ -35,8 +35,8 @@ class ProteinScene: SCNScene {
     func drawAtomsWithCubes() {
         for atom in ProteinViewController.atomList {
             let boxGeom = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
-//            sphereGeom.firstMaterial?.diffuse.contents = atom.color
-            boxGeom.firstMaterial?.diffuse.contents = UIColor.white
+            sphereGeom.firstMaterial?.diffuse.contents = atom.color
+            //boxGeom.firstMaterial?.diffuse.contents = UIColor.white
             let boxNode = SCNNode(geometry: boxGeom)
             boxNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
             self.rootNode.addChildNode(boxNode)
