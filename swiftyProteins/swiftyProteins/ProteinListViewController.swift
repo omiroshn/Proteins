@@ -10,7 +10,6 @@ class ProteinCell: UITableViewCell {
             contentView.backgroundColor = UIColor(red: 0.3216, green: 0.7686, blue: 0.6784, alpha: 1)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                 self.contentView.backgroundColor = .white
-                
             }
         }
     }
@@ -24,8 +23,10 @@ class ProteinListViewController: UIViewController {
     
     var ligandsList = [String]()
     var searchLigands = [String]()
+    
     var isSearching = false
-    var ligandForSeque = String()
+    
+    var parseAtom = ParseAtom()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +38,38 @@ class ProteinListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVc = segue.destination as? ProteinViewController {
-            nextVc.ligand = ligandForSeque
+            nextVc.atomList = self.parseAtom.atomList
         }
+    }
+    
+    func atomDataRequest(completeonClosure: @escaping (Data?) -> ()) {
+        let url = URL(string: "https://files.rcsb.org/ligands/vi//\(self.parseAtom.ligandName)_ideal.pdb")
+        let request = NSMutableURLRequest(url: url!)
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 404 {
+                    self.loadingError("Loading Error")
+                    self.activityIndicator.stopAnimating()
+                }
+                else if let err = error {
+                    print(err)
+                    self.loadingError("Loading Error")
+                    self.activityIndicator.stopAnimating()
+                }
+                else if (data != nil) {
+                    completeonClosure(data as Data?)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func loadingError(_ message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -67,15 +98,19 @@ extension ProteinListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         activityIndicator.startAnimating()
+        
+        if !parseAtom.atomList.isEmpty {
+            parseAtom.atomList.removeAll()
+        }
         if isSearching {
-            ligandForSeque = self.searchLigands[indexPath.row]
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.performSegue(withIdentifier: "Ligand", sender: self)
-            }
+            self.parseAtom.ligandName = self.searchLigands[indexPath.row]
         }
         else {
-            ligandForSeque = self.ligandsList[indexPath.row]
+            self.parseAtom.ligandName = self.ligandsList[indexPath.row]
+        }
+        self.atomDataRequest() {
+            data in
+            self.parseAtom.atomSplit(data: data)
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.performSegue(withIdentifier: "Ligand", sender: self)

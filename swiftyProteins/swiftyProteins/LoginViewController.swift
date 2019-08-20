@@ -11,6 +11,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        touchIDloginButton.isHidden = true
+        faceIDLoginButton.isHidden = true
         checkBiometricalEntry()
     }
     
@@ -25,7 +27,6 @@ class LoginViewController: UIViewController {
         } else {
             print(error as Any)
             authenticationError("Biometrics are not supported on this device, Sorry.")
-            touchIDloginButton.isHidden = false
         }
     }
     

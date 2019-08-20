@@ -11,17 +11,30 @@ import SceneKit
 
 class ProteinScene: SCNScene {
     
-    override init() {
+    var atomList: [Atom] = []
+    
+    init(atomList: [Atom] = []) {
         super.init()
         
-        drawAtomsWithSpheres()
-        //drawAtomsWithCubes()
         
+        //drawAtomsWithCubes()
+        self.atomList = atomList
+        drawAtomsWithSpheres()
         drawPillars()
+        self.rootNode.addChildNode(self.cameraSettings())
+    }
+    
+    func cameraSettings() -> SCNNode {
+        let cameraNode = SCNNode()
+        
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x:0, y: 0, z: 30)
+        
+        return cameraNode
     }
     
     func drawAtomsWithSpheres() {
-        for atom in ProteinViewController.atomList {
+        for atom in atomList {
             let sphereGeom = SCNSphere(radius: 0.5)
             sphereGeom.firstMaterial?.diffuse.contents = atom.color
             //sphereGeom.firstMaterial?.diffuse.contents = UIColor.white
@@ -33,9 +46,9 @@ class ProteinScene: SCNScene {
     }
     
     func drawAtomsWithCubes() {
-        for atom in ProteinViewController.atomList {
+        for atom in atomList {
             let boxGeom = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
-            sphereGeom.firstMaterial?.diffuse.contents = atom.color
+            boxGeom.firstMaterial?.diffuse.contents = atom.color
             //boxGeom.firstMaterial?.diffuse.contents = UIColor.white
             let boxNode = SCNNode(geometry: boxGeom)
             boxNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
@@ -60,15 +73,15 @@ class ProteinScene: SCNScene {
     }
     
     func drawPillars() {
-        for atom in ProteinViewController.atomList {
+        for atom in atomList {
             let first = atom.connections.first!
-            let firstProtein = ProteinViewController.atomList[first-1]
+            let firstProtein = atomList[first - 1]
             let firstVec = SCNVector3(x: firstProtein.x, y: firstProtein.y, z: firstProtein.z)
             
             for atomID in atom.connections {
                 if (atomID == atom.connections.first!) {continue}
 
-                let secondProtein = ProteinViewController.atomList[atomID-1]
+                let secondProtein = atomList[atomID-1]
                 let secondVec = SCNVector3(x: secondProtein.x, y: secondProtein.y, z: secondProtein.z)
                 let lineNode = line(from: firstVec, to: secondVec, width: 10, color: UIColor.white)
                 
