@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,11 +20,9 @@
 		4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA9E249230AD88500DF5005 /* SceneKit.framework */; };
 		4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24B230AD97600DF5005 /* ProteinScene.swift */; };
 		4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */; };
-		59A685D4046E70B12848CCDA /* Pods_swiftyProteins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyProteins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		497AD0872309BEF00022B23B /* loadingIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loadingIcon.gif; path = ../../loadingIcon.gif; sourceTree = "<group>"; };
 		497AD0892309C0A40022B23B /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		499CBB28230827170022C8AC /* swiftyProteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyProteins.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,8 +39,6 @@
 		4AA9E249230AD88500DF5005 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		4AA9E24B230AD97600DF5005 /* ProteinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
 		4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
-		AD18182122C6821D490A4DFD /* Pods-swiftyProteins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyProteins.debug.xcconfig"; path = "Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins.debug.xcconfig"; sourceTree = "<group>"; };
-		B9E3C9C60F69A3D404A58508 /* Pods-swiftyProteins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyProteins.release.xcconfig"; path = "Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */,
-				59A685D4046E70B12848CCDA /* Pods_swiftyProteins.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +58,6 @@
 			children = (
 				499CBB2A230827170022C8AC /* swiftyProteins */,
 				499CBB29230827170022C8AC /* Products */,
-				7522F9EABF4A613F658E1149 /* Pods */,
 				C85EEFDA965C998BC4785B46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -97,20 +91,10 @@
 			path = swiftyProteins;
 			sourceTree = "<group>";
 		};
-		7522F9EABF4A613F658E1149 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AD18182122C6821D490A4DFD /* Pods-swiftyProteins.debug.xcconfig */,
-				B9E3C9C60F69A3D404A58508 /* Pods-swiftyProteins.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C85EEFDA965C998BC4785B46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4AA9E249230AD88500DF5005 /* SceneKit.framework */,
-				35EBE24F4A44A454342FE221 /* Pods_swiftyProteins.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,15 +174,14 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftyProteins/Pods-swiftyProteins-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		C6BB6F374BBD1DEF6B970231 /* [CP] Check Pods Manifest.lock */ = {
@@ -209,18 +192,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-swiftyProteins-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -382,7 +363,6 @@
 		};
 		499CBB3B2308271D0022C8AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD18182122C6821D490A4DFD /* Pods-swiftyProteins.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -401,7 +381,6 @@
 		};
 		499CBB3C2308271D0022C8AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9E3C9C60F69A3D404A58508 /* Pods-swiftyProteins.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
