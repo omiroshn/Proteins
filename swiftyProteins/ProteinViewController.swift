@@ -1,9 +1,11 @@
 import UIKit
 import SceneKit
+import ARKit
 
-class ProteinViewController: UIViewController {
+class ProteinViewController: UIViewController, ARSCNViewDelegate {
     var atomList: [Atom] = []
-    var scnView = SCNView()
+    
+    @IBOutlet var scnView: ARSCNView!
     
     @IBOutlet weak var informationView: UIView!
     @IBOutlet weak var infoView: UIView!
@@ -16,6 +18,37 @@ class ProteinViewController: UIViewController {
     @IBOutlet weak var switchControl: UISwitch!
     static var switchIsOn:Bool = true
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        scnView.session.run(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        scnView.session.pause()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .black
+        informationView.layer.cornerRadius = 5
+        switchControl.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
+        hide(on: true)
+        
+        scnView.delegate = self
+        scnView.showsStatistics = true
+
+        self.scnView.scene = ProteinScene(atomList: atomList)
+        self.scnView.autoenablesDefaultLighting = true
+        self.scnView.allowsCameraControl = true
+        DispatchQueue.main.async {
+            self.scnView.addGestureRecognizer(tap)
+        }
+    }
+    
     @objc func stateChanged(switchState: UISwitch) {
         if switchState.isOn {
             ProteinViewController.switchIsOn = true
@@ -23,28 +56,6 @@ class ProteinViewController: UIViewController {
             ProteinViewController.switchIsOn = false
         }
         self.scnView.scene = ProteinScene(atomList: atomList)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        informationView.layer.cornerRadius = 5
-        
-        view.backgroundColor = .black
-        switchControl.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
-        
-        hide(on: true)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
-        
-        self.scnView = self.view as! SCNView
-        self.scnView.scene = ProteinScene(atomList: atomList)
-        self.scnView.backgroundColor = UIColor.black
-        self.scnView.autoenablesDefaultLighting = true
-        self.scnView.allowsCameraControl = true
-        DispatchQueue.main.async {
-            self.scnView.addGestureRecognizer(tap)
-        }
     }
     
     @IBAction func sharePressed(_ sender: Any) {

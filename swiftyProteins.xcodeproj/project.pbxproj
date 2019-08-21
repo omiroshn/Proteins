@@ -20,6 +20,7 @@
 		4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA9E249230AD88500DF5005 /* SceneKit.framework */; };
 		4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24B230AD97600DF5005 /* ProteinScene.swift */; };
 		4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */; };
+		4ACBB8DF230D48650030B984 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACBB8DE230D48650030B984 /* ARKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		4AA9E249230AD88500DF5005 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		4AA9E24B230AD97600DF5005 /* ProteinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
 		4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
+		4ACBB8DE230D48650030B984 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ACBB8DF230D48650030B984 /* ARKit.framework in Frameworks */,
 				4AA9E24A230AD88500DF5005 /* SceneKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +97,7 @@
 		C85EEFDA965C998BC4785B46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ACBB8DE230D48650030B984 /* ARKit.framework */,
 				4AA9E249230AD88500DF5005 /* SceneKit.framework */,
 			);
 			name = Frameworks;

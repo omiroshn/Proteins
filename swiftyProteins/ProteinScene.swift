@@ -8,29 +8,23 @@ class ProteinScene: SCNScene {
         super.init()
         
         self.atomList = atomList
-        self.rootNode.addChildNode(cameraSettings())
         if ProteinViewController.switchIsOn == true {
             drawAtomsWithSpheres()
         } else {
             drawAtomsWithCubes()
         }
         drawPillars()
+        
+        
     }
     
-    func cameraSettings() -> SCNNode {
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x:0, y: 0, z: 30)
-        return cameraNode
-    }
     
     func drawAtomsWithSpheres() {
         for atom in atomList {
             let sphereGeom = SCNSphere(radius: 0.5)
             sphereGeom.firstMaterial?.diffuse.contents = atom.color
-            //sphereGeom.firstMaterial?.diffuse.contents = UIColor.white
             let sphereNode = SCNNode(geometry: sphereGeom)
-            sphereNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
+            sphereNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z - 20)
             sphereNode.name = String(atom.id)
             self.rootNode.addChildNode(sphereNode)
         }
@@ -40,9 +34,8 @@ class ProteinScene: SCNScene {
         for atom in atomList {
             let boxGeom = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0)
             boxGeom.firstMaterial?.diffuse.contents = atom.color
-            //boxGeom.firstMaterial?.diffuse.contents = UIColor.white
             let boxNode = SCNNode(geometry: boxGeom)
-            boxNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
+            boxNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z - 20)
             boxNode.name = String(atom.id)
             self.rootNode.addChildNode(boxNode)
         }
@@ -58,7 +51,8 @@ class ProteinScene: SCNScene {
         
         let node = SCNNode(geometry: cylinder)
         
-        node.position = (to + from) / 2
+        let pos = (to + from) / 2
+        node.position = SCNVector3(x: pos.x, y: pos.y, z: pos.z - 20)
         node.eulerAngles = SCNVector3Make(Float(Double.pi/2), acos((to.z-from.z)/length), atan2((to.y-from.y), (to.x-from.x) ))
         
         return node
