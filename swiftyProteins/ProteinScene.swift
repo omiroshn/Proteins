@@ -14,8 +14,6 @@ class ProteinScene: SCNScene {
             drawAtomsWithCubes()
         }
         drawPillars()
-        
-        
     }
     
     
