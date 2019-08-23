@@ -1,11 +1,10 @@
 import UIKit
 import SceneKit
-import ARKit
 
-class ProteinViewController: UIViewController, ARSCNViewDelegate {
+class ProteinViewController: UIViewController {
     var atomList: [Atom] = []
     
-    @IBOutlet var scnView: ARSCNView!
+    @IBOutlet var scnView: SCNView!
     
     @IBOutlet weak var informationView: UIView!
     @IBOutlet weak var infoView: UIView!
@@ -18,28 +17,17 @@ class ProteinViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var switchControl: UISwitch!
     static var switchIsOn:Bool = true
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let configuration = ARWorldTrackingConfiguration()
-        scnView.session.run(configuration)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        scnView.session.pause()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        ProteinViewController.switchIsOn = true
         informationView.layer.cornerRadius = 5
         switchControl.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         hide(on: true)
         
-        scnView.delegate = self
-        scnView.showsStatistics = true
+        self.scnView.showsStatistics = true
 
         self.scnView.scene = ProteinScene(atomList: atomList)
         self.scnView.autoenablesDefaultLighting = true

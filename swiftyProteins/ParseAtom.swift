@@ -65,6 +65,7 @@ class ParseAtom: NSObject {
     }
     
     func parseAtomData() {
+        var connect = 0
         for line in atomsData {
             let atomData = line.split(separator: " ")
             
@@ -85,7 +86,8 @@ class ParseAtom: NSObject {
                 for index in 1...atomData.count - 1 {
                     connections.append(Int(atomData[index])!)
                 }
-                self.atomList[Int(atomData[1])! - 1].setConnections(connections: connections)
+                self.atomList[connect].setConnections(connections: connections)
+                connect += 1
             }
         }
     }

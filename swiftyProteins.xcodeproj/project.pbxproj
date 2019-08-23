@@ -11,7 +11,6 @@
 		499CBB2C230827170022C8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2B230827170022C8AC /* AppDelegate.swift */; };
 		499CBB2E230827170022C8AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB2D230827170022C8AC /* LoginViewController.swift */; };
 		499CBB31230827170022C8AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499CBB2F230827170022C8AC /* Main.storyboard */; };
-		499CBB332308271D0022C8AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499CBB322308271D0022C8AC /* Assets.xcassets */; };
 		499CBB362308271D0022C8AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499CBB342308271D0022C8AC /* LaunchScreen.storyboard */; };
 		499CBB3E230835200022C8AC /* ProteinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3D230835200022C8AC /* ProteinListViewController.swift */; };
 		499CBB40230852B80022C8AC /* Ligands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CBB3F230852B80022C8AC /* Ligands.swift */; };
@@ -21,6 +20,7 @@
 		4AA9E24C230AD97600DF5005 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24B230AD97600DF5005 /* ProteinScene.swift */; };
 		4AA9E24E230AD9B900DF5005 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */; };
 		4ACBB8DF230D48650030B984 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACBB8DE230D48650030B984 /* ARKit.framework */; };
+		4AE6EE05230EB1E50039BAC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE6EE04230EB1E50039BAC0 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,6 @@
 		499CBB2B230827170022C8AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499CBB2D230827170022C8AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		499CBB30230827170022C8AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		499CBB322308271D0022C8AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499CBB352308271D0022C8AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499CBB372308271D0022C8AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		499CBB3D230835200022C8AC /* ProteinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinListViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		4AA9E24B230AD97600DF5005 /* ProteinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
 		4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		4ACBB8DE230D48650030B984 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		4AE6EE04230EB1E50039BAC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +83,10 @@
 				499CBB3D230835200022C8AC /* ProteinListViewController.swift */,
 				49BFAFEF230C44A600BE0BB3 /* ParseAtom.swift */,
 				497AD0892309C0A40022B23B /* Atom.swift */,
+				4AE6EE04230EB1E50039BAC0 /* Assets.xcassets */,
 				499CBB41230870BD0022C8AC /* ProteinViewController.swift */,
 				4AA9E24B230AD97600DF5005 /* ProteinScene.swift */,
 				4AA9E24D230AD9B900DF5005 /* SCNVector3Extensions.swift */,
-				499CBB322308271D0022C8AC /* Assets.xcassets */,
 				499CBB342308271D0022C8AC /* LaunchScreen.storyboard */,
 				497AD0872309BEF00022B23B /* loadingIcon.gif */,
 				499CBB372308271D0022C8AC /* Info.plist */,
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				499CBB362308271D0022C8AC /* LaunchScreen.storyboard in Resources */,
-				499CBB332308271D0022C8AC /* Assets.xcassets in Resources */,
+				4AE6EE05230EB1E50039BAC0 /* Assets.xcassets in Resources */,
 				499CBB31230827170022C8AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

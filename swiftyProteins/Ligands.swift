@@ -10,7 +10,6 @@ class Ligands: NSObject {
                 print(err)
             }
             if let res = response as? HTTPURLResponse {
-                print(res.statusCode)
                 if res.statusCode == 200 {
                     completeonClosure(data as Data?)
                 } else {
